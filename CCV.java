@@ -5,7 +5,7 @@ public class CCV
         long lng = 3734123412341234L;
         if (isValid(lng))
         {
-            System.out.println(getDigit(6));
+            System.out.println(sumOfDoubleEvenPlace(lng));
         } else {
             System.out.println("losing");
         }
@@ -31,30 +31,39 @@ public class CCV
         
         
     }
-/*
+
     public static int sumOfDoubleEvenPlace(long number)
     {
         //total = 0
+        int total = 0;
         // for x in number.length()
-          // num = number.substring(x, x+1)
+        for (int x = Long.toString(number).length() - 1; x > 0; x--)
+        {
+            if (x % 2 == 0)
+            {
+                System.out.println(x);
+                String digit = Long.toString(number).substring(x - 1, x);
+                total += getDigit(Integer.parseInt(digit));
           // num *= 2;
           // if num.length() == 2
             // a = num.substring(0,1)
             // b = num.substring(1,2)
             // num = a + b
           // total += num
+            }
+        }
+        return total;
 
     }
-*/
+
     public static int getDigit(int number)
     {
         number *= 2;
+
         if (Integer.toString(number).length() == 2)
         {
             int d1 = Integer.parseInt(Integer.toString(number).substring(0, 1));
-            System.out.println(d1);
             int d2 = Integer.parseInt(Integer.toString(number).substring(1, 2));
-            System.out.println(d2);
             return d1 + d2;
         }
         return number;
