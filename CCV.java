@@ -34,22 +34,14 @@ public class CCV
 
     public static int sumOfDoubleEvenPlace(long number)
     {
-        //total = 0
         int total = 0;
-        // for x in number.length()
-        for (int x = Long.toString(number).length() - 1; x > 0; x--)
+        for (int x = Long.toString(number).length(); x > 0; x--)
         {
             if (x % 2 == 0)
             {
                 System.out.println(x);
                 String digit = Long.toString(number).substring(x - 1, x);
                 total += getDigit(Integer.parseInt(digit));
-          // num *= 2;
-          // if num.length() == 2
-            // a = num.substring(0,1)
-            // b = num.substring(1,2)
-            // num = a + b
-          // total += num
             }
         }
         return total;
@@ -71,6 +63,7 @@ public class CCV
 /*
     public static int sumOfOddPlace(long number)
     {
+        for (int x = Long.toString(number).length())
     }
 */
     public static boolean prefixMatched(long number, int d)
