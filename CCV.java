@@ -2,11 +2,10 @@ public class CCV
 {
     public static void main(String[] args)
     {
-        long lng = 4388576018402626L;
+        long lng = 4388576018410707L;
         if (isValid(lng))
         {
-            System.out.println(sumOfDoubleEvenPlace(lng));
-            System.out.println(sumOfOddPlace(lng));
+            System.out.println("winning");
         } else {
             System.out.println("losing");
         }
@@ -15,20 +14,29 @@ public class CCV
     public static boolean isValid(long number)
     {
         // convert to string and check length
-
+        int [] valid = {4, 5, 6, 37};
         if (getSize(number) < 13 || getSize(number) > 16)
         {
             return false;
-        }
+        } else { 
         
-        if (prefixMatched(number, 4) ||
-            prefixMatched(number, 5) ||
-            prefixMatched(number, 6) ||
-            prefixMatched(number, 37)) {
-            return true;
+            for (int x = 0; x < valid.length; x++)
+            {
+                if (prefixMatched(number, valid[x]))
+                {
+                    int even = sumOfDoubleEvenPlace(number);
+                    int odd = sumOfOddPlace(number);
+
+                    int total = even + odd;
+                    if (total % 10 == 0) return true;
+                    return false;
+                }
+            }
         }
 
         return false;
+
+        
         
         
     }
