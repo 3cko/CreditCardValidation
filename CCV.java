@@ -5,7 +5,7 @@ public class CCV
         long lng = 3734123412341234L;
         if (isValid(lng))
         {
-            System.out.println("winning");
+            System.out.println(getDigit(6));
         } else {
             System.out.println("losing");
         }
@@ -45,11 +45,21 @@ public class CCV
           // total += num
 
     }
-
+*/
     public static int getDigit(int number)
     {
+        number *= 2;
+        if (Integer.toString(number).length() == 2)
+        {
+            int d1 = Integer.parseInt(Integer.toString(number).substring(0, 1));
+            System.out.println(d1);
+            int d2 = Integer.parseInt(Integer.toString(number).substring(1, 2));
+            System.out.println(d2);
+            return d1 + d2;
+        }
+        return number;
     }
-
+/*
     public static int sumOfOddPlace(long number)
     {
     }
