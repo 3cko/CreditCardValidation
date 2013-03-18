@@ -1,14 +1,16 @@
+import java.util.Scanner;
+
+
 public class CCV
 {
     public static void main(String[] args)
     {
-        long lng = 4388576018410707L;
-        if (isValid(lng))
-        {
-            System.out.println("winning");
-        } else {
-            System.out.println("losing");
-        }
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter a credit card number as a long integer: ");
+        long number = input.nextLong();
+        String valid = (isValid(number)) ? "valid" : "invalid";
+        String formatted = String.format("%d is %s", number, valid);
+        System.out.println(formatted);
     }
 
     public static boolean isValid(long number)
@@ -33,12 +35,7 @@ public class CCV
                 }
             }
         }
-
         return false;
-
-        
-        
-        
     }
 
     public static int sumOfDoubleEvenPlace(long number)
@@ -53,7 +50,6 @@ public class CCV
             }
         }
         return total;
-
     }
 
     public static int getDigit(int number)
