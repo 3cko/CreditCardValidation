@@ -2,10 +2,11 @@ public class CCV
 {
     public static void main(String[] args)
     {
-        long lng = 3734123412341234L;
+        long lng = 4388576018402626L;
         if (isValid(lng))
         {
             System.out.println(sumOfDoubleEvenPlace(lng));
+            System.out.println(sumOfOddPlace(lng));
         } else {
             System.out.println("losing");
         }
@@ -39,8 +40,7 @@ public class CCV
         {
             if (x % 2 == 0)
             {
-                System.out.println(x);
-                String digit = Long.toString(number).substring(x - 1, x);
+                String digit = Long.toString(number).substring(x - 2, x - 1);
                 total += getDigit(Integer.parseInt(digit));
             }
         }
@@ -54,18 +54,29 @@ public class CCV
 
         if (Integer.toString(number).length() == 2)
         {
-            int d1 = Integer.parseInt(Integer.toString(number).substring(0, 1));
-            int d2 = Integer.parseInt(Integer.toString(number).substring(1, 2));
+            int d1 = Integer.parseInt(Integer.toString(
+                                                number).substring(0, 1));
+            int d2 = Integer.parseInt(Integer.toString(
+                                                number).substring(1, 2));
             return d1 + d2;
         }
         return number;
     }
-/*
+
     public static int sumOfOddPlace(long number)
     {
-        for (int x = Long.toString(number).length())
+        int total = 0;
+        for (int x = Long.toString(number).length(); x > 0; x--)
+        {
+            if (x % 2 == 0)
+            {
+                total += Integer.parseInt(Long.toString(
+                                                 number).substring(x - 1, x));
+            }
+        }
+        return total;
     }
-*/
+
     public static boolean prefixMatched(long number, int d)
     {
         if (getPrefix(number, 1) == d) return true;
